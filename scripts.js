@@ -44,7 +44,7 @@
                 title: 'Confianza que impulsa oportunidades',
                 description: 'Trabajamos junto a empresas líderes y comprometidas para ofrecer soluciones transparentes, ágiles y confiables.',
                 image: 'images/carruselEquipo.png',
-                tech: []
+                tech: ['Confianza', 'Empresas Líderes', 'Soluciones Ágiles']
             }
         ];
 
