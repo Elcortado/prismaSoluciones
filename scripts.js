@@ -498,12 +498,14 @@
             }
 
             const formData = new FormData(contactForm);
+            const payload = Object.fromEntries(formData.entries());
 
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
-                    body: formData,
+                    body: JSON.stringify(payload),
                     headers: {
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
                 });
@@ -521,7 +523,7 @@
                     formStartedAt.value = String(Date.now());
                 }
             } catch (error) {
-                showFormStatus('No pudimos conectar con el servidor de envío. Revisá que PHP esté activo en tu hosting.', 'error');
+                showFormStatus('No pudimos conectar con el servicio de envío. Verificá la configuración de la API en Vercel.', 'error');
             }
         });
 
