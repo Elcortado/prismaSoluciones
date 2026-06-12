@@ -1391,6 +1391,106 @@ body::after {
 	box-shadow: 0 5px 20px rgba(153, 69, 255, 0.3);
 }
 
+/* FAQ Section */
+.faq-section {
+	padding: 120px 30px;
+	background: linear-gradient(180deg,
+			var(--primary-black) 0%,
+			rgba(0, 168, 255, 0.04) 45%,
+			var(--carbon-dark) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.faq-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: min(900px, 90vw);
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+	transform: translateX(-50%);
+}
+
+.faq-container {
+	max-width: 980px;
+	margin: 0 auto;
+	display: grid;
+	gap: 18px;
+}
+
+.faq-item {
+	background: linear-gradient(135deg,
+			rgba(42, 42, 42, 0.45),
+			rgba(18, 18, 18, 0.85));
+	border: 1px solid var(--metal-dark);
+	border-radius: 15px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.faq-item.active {
+	border-color: var(--accent-purple);
+	box-shadow: 0 14px 32px rgba(153, 69, 255, 0.16);
+}
+
+.faq-question {
+	width: 100%;
+	align-items: center;
+	background: transparent;
+	border: 0;
+	color: var(--text-primary);
+	cursor: pointer;
+	display: flex;
+	font: inherit;
+	font-size: 17px;
+	font-weight: 700;
+	justify-content: space-between;
+	letter-spacing: 1px;
+	padding: 24px 28px;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+.faq-question:hover {
+	color: var(--accent-cyan);
+}
+
+.faq-icon {
+	align-items: center;
+	background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+	border-radius: 50%;
+	display: flex;
+	flex: 0 0 34px;
+	font-size: 24px;
+	height: 34px;
+	justify-content: center;
+	line-height: 1;
+	margin-left: 20px;
+	transition: transform 0.3s ease;
+	width: 34px;
+}
+
+.faq-item.active .faq-icon {
+	transform: rotate(45deg);
+}
+
+.faq-answer {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.35s ease;
+}
+
+.faq-answer p {
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	color: var(--text-secondary);
+	font-size: 15px;
+	line-height: 1.7;
+	margin: 0 28px;
+	padding: 22px 0 26px;
+}
+
 /* Contact Section */
 .contact-section {
 	padding: 120px 30px;
@@ -1560,6 +1660,41 @@ a.info-item {
 .form-group textarea {
 	resize: vertical;
 	min-height: 120px;
+}
+
+.honeypot-field {
+	left: -9999px;
+	opacity: 0;
+	position: absolute;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.form-status {
+	border-radius: 8px;
+	display: none;
+	font-size: 14px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+	padding: 14px 16px;
+}
+
+.form-status.visible {
+	display: block;
+}
+
+.form-status.success {
+	background: rgba(0, 255, 136, 0.1);
+	border: 1px solid rgba(0, 255, 136, 0.35);
+	color: var(--accent-green);
+}
+
+.form-status.error {
+	background: rgba(255, 51, 51, 0.1);
+	border: 1px solid rgba(255, 51, 51, 0.35);
+	color: #ff8a8a;
 }
 
 .submit-btn {

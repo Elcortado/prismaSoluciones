@@ -441,20 +441,88 @@
             observer.observe(statsSection);
         }
 
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
         // Form submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        const formStatus = document.getElementById('formStatus');
+        const formStartedAt = document.getElementById('form_started_at');
+
+        if (formStartedAt) {
+            formStartedAt.value = String(Date.now());
+        }
+
+        function showFormStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = `form-status visible ${type}`;
+        }
+
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Get form data
+
+            const requiredFields = ['name', 'phone', 'email', 'message'];
+            const hasEmptyFields = requiredFields.some(fieldName => {
+                const field = contactForm.elements[fieldName];
+                return !field || !field.value.trim();
+            });
+
+            if (hasEmptyFields) {
+                showFormStatus('Completá todos los campos obligatorios para enviar tu consulta.', 'error');
+                return;
+            }
+
+            if (!contactForm.elements.email.checkValidity()) {
+                showFormStatus('Ingresá un email válido para que podamos responderte.', 'error');
+                return;
+            }
+
             const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Show success message
-            alert(`Thank you ${data.name}! Your message has been transmitted successfully. We'll respond within 24 hours.`);
-            
-            // Reset form
-            contactForm.reset();
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    showFormStatus(result.message || 'No pudimos enviar tu consulta. Intentá nuevamente.', 'error');
+                    return;
+                }
+
+                showFormStatus(result.message || 'Tu consulta fue enviada correctamente. Te responderemos a la brevedad.', 'success');
+                contactForm.reset();
+                if (formStartedAt) {
+                    formStartedAt.value = String(Date.now());
+                }
+            } catch (error) {
+                showFormStatus('No pudimos conectar con el servidor de envío. Revisá que PHP esté activo en tu hosting.', 'error');
+            }
         });
 
         // Loading screen

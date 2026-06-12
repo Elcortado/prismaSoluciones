@@ -40,6 +40,7 @@
                 <li><a href="#about" class="nav-link">Nosotros</a></li>
                 <li><a href="#stats" class="nav-link">Líneas</a></li>
              
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link">Contacto</a></li>
             </ul>
             
@@ -151,11 +152,81 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Respuestas claras para que puedas avanzar con confianza antes de solicitar asesoramiento.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿Qué tipo de financiación puedo consultar?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Podés consultar opciones para productos del hogar, movilidad y préstamos personales. Te orientamos según tu necesidad, presupuesto y el tipo de compra que querés realizar.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿La consulta tiene algún costo?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. El asesoramiento inicial es sin costo y está pensado para ayudarte a entender qué alternativas pueden adaptarse mejor a tu situación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿Qué datos necesito para iniciar una solicitud?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Para comenzar, necesitamos tus datos de contacto y una breve descripción de lo que buscás financiar. Luego te indicaremos si hace falta documentación adicional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿Cuánto tarda la respuesta?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Respondemos lo antes posible para revisar tu caso y explicarte los próximos pasos. Los tiempos finales pueden variar según la línea de financiación consultada.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿Puedo financiar más de un producto?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí. Podés consultar por una compra puntual o por varios productos. En ese caso evaluamos la alternativa más conveniente para ordenar monto, cuotas y condiciones.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">
+                    <span>¿Cómo sé cuál opción me conviene?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Te acompañamos comparando alternativas disponibles y explicando la información de forma simple para que puedas decidir con claridad antes de avanzar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="section-header">
-            <h2 class="section-title">Initialize Connection</h2>
-            <p class="section-subtitle">Ready to transform your vision into reality? Let's connect.</p>
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">Contanos qué necesitás financiar y nos comunicamos para asesorarte.</p>
         </div>
         
         <div class="contact-container">
@@ -168,11 +239,11 @@
                     </div>
                 </a>
                 
-                <a href="mailto:hello@prismflux.io" class="info-item">
+                <a href="mailto:prismasolucioneschaco@gmail.com" class="info-item">
                     <div class="info-icon">📧</div>
                     <div class="info-text">
                         <h4>Email</h4>
-                        <p>hello@prismflux.io</p>
+                        <p>prismasolucioneschaco@gmail.com</p>
                     </div>
                 </a>
                 
@@ -193,10 +264,15 @@
                 </a>
             </div>
             
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="send_contact.php" method="post" novalidate>
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nombre</label>
                     <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
                 
                 <div class="form-group">
@@ -205,16 +281,19 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message">Mensaje</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
+
+                <div class="form-group honeypot-field" aria-hidden="true">
+                    <label for="company_website">Sitio web</label>
+                    <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <input type="hidden" id="form_started_at" name="form_started_at" value="">
+                <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
                 
-                <button type="submit" class="submit-btn">Transmit Message</button>
+                <button type="submit" class="submit-btn">Enviar consulta</button>
             </form>
         </div>
     </section>
