@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
   }
 
   if (!process.env.RESEND_API_KEY) {
-    return sendJson(res, 500, false, 'Falta configurar RESEND_API_KEY en Vercel.');
+    return sendJson(res, 500, false, 're_iiMqLACM_EfRGWapoZMr3EYMtUBAoWcBa');
   }
 
   const payload = getPayload(req);
