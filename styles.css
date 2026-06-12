@@ -512,25 +512,6 @@ body::after {
 	letter-spacing: 1px;
 }
 
-.card-cta {
-	padding: 12px 30px;
-	background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-	border: none;
-	border-radius: 30px;
-	color: var(--text-primary);
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	box-shadow: 0 5px 15px rgba(153, 69, 255, 0.3);
-}
-
-.card-cta:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 8px 25px rgba(153, 69, 255, 0.5);
-}
-
 /* Carousel Controls */
 .carousel-controls {
 	position: absolute;
@@ -1835,6 +1816,90 @@ a.info-item {
 	text-decoration: underline;
 }
 
+.whatsapp-float {
+	position: fixed;
+	right: 28px;
+	bottom: 28px;
+	width: 66px;
+	height: 66px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 28%),
+		linear-gradient(135deg, #25d366, #128c7e);
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	border-radius: 50%;
+	box-shadow:
+		0 18px 40px rgba(18, 140, 126, 0.45),
+		0 0 24px rgba(37, 211, 102, 0.35);
+	color: #fff;
+	text-decoration: none;
+	z-index: 9990;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+	animation: whatsappFloat 3s ease-in-out infinite;
+}
+
+.whatsapp-float::after {
+	content: '';
+	position: absolute;
+	inset: 9px;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	pointer-events: none;
+}
+
+.whatsapp-float:hover {
+	transform: translateY(-5px) scale(1.06);
+	box-shadow:
+		0 24px 52px rgba(18, 140, 126, 0.55),
+		0 0 34px rgba(37, 211, 102, 0.5);
+	filter: saturate(1.15);
+}
+
+.whatsapp-float:focus-visible {
+	outline: 3px solid rgba(255, 255, 255, 0.9);
+	outline-offset: 5px;
+}
+
+.whatsapp-icon {
+	width: 34px;
+	height: 34px;
+	fill: currentColor;
+	position: relative;
+	z-index: 2;
+}
+
+.whatsapp-pulse {
+	position: absolute;
+	inset: -8px;
+	border-radius: 50%;
+	background: rgba(37, 211, 102, 0.26);
+	animation: whatsappPulse 2s ease-out infinite;
+}
+
+@keyframes whatsappFloat {
+	0%, 100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-6px);
+	}
+}
+
+@keyframes whatsappPulse {
+	0% {
+		transform: scale(0.82);
+		opacity: 0.8;
+	}
+
+	100% {
+		transform: scale(1.55);
+		opacity: 0;
+	}
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
 	.carousel-item {
@@ -1949,11 +2014,6 @@ a.info-item {
 		right: 20px;
 	}
 
-	.card-cta {
-		padding: 10px 25px;
-		font-size: 14px;
-	}
-
 	.carousel-controls {
 		bottom: -60px;
 		gap: 15px;
@@ -2049,5 +2109,17 @@ a.info-item {
 		flex-direction: column;
 		gap: 20px;
 		text-align: center;
+	}
+
+	.whatsapp-float {
+		right: 18px;
+		bottom: 18px;
+		width: 58px;
+		height: 58px;
+	}
+
+	.whatsapp-icon {
+		width: 30px;
+		height: 30px;
 	}
 }

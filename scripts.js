@@ -6,70 +6,48 @@
         const portfolioData = [
             {
                 id: 1,
-                title: 'Neural Network',
-                description: 'Advanced AI system with deep learning capabilities for predictive analytics and pattern recognition.',
-                image: 'images/neural-network.jpg',
-                tech: ['TensorFlow', 'Python', 'CUDA']
+                title: 'Hogares que inspiran',
+                description: 'Financiamos muebles de calidad para que transformes cada espacio de tu hogar con comodidad, diseño y funcionalidad.',
+                image: 'images/carruselMuebles.png',
+                tech: ['Financiación', 'Muebles', 'Hogar']
             },
             {
                 id: 2,
-                title: 'Quantum Cloud',
-                description: 'Next-generation cloud infrastructure leveraging quantum computing for unprecedented processing power.',
-                image: 'images/quantum-cloud.jpg',
-                tech: ['AWS', 'Kubernetes', 'Docker']
+                title: 'Tecnología para tu día a día',
+                description: 'Accedé a los electrodomésticos que necesitás con planes de financiación pensados para vos y tu familia.',
+                image: 'images/carruselElectro.png',
+                tech: ['Financiación', 'Electrodomésticos', 'Hogar']
             },
             {
                 id: 3,
-                title: 'Blockchain Vault',
-                description: 'Secure decentralized storage solution using advanced encryption and distributed ledger technology.',
-                image: 'images/blockchain-vault.jpg',
-                tech: ['Ethereum', 'Solidity', 'Web3']
+                title: 'Tu movilidad, sin límites',
+                description: 'Encontrá la moto ideal para trabajar, estudiar o disfrutar de una mayor independencia con cuotas accesibles.',
+                image: 'images/categoriaMovilidad.png',
+                tech: ['Financiación', 'Motos', 'Bicicletas']  
             },
             {
                 id: 4,
-                title: 'Cyber Defense',
-                description: 'Military-grade cybersecurity framework with real-time threat detection and automated response.',
-                image: 'images/cyber-defense.jpg',
-                tech: ['Zero Trust', 'AI Defense', 'Encryption']
+                title: 'Soluciones para cada proyecto',
+                description: 'Obtené el respaldo financiero que necesitás para concretar tus objetivos y afrontar nuevos desafíos.',
+                image: 'images/categoriaPrestamos.png"',
+                tech: [ 'Préstamos', 'Proyectos']
             },
             {
                 id: 5,
-                title: 'Data Nexus',
-                description: 'Big data processing platform capable of analyzing petabytes of information in real-time.',
-                image: 'images/data-nexus.jpg',
-                tech: ['Apache Spark', 'Hadoop', 'Kafka']
+                title: 'Asesoramiento que te acompaña',
+                description: 'Te brindamos atención personalizada para encontrar la alternativa de financiación más adecuada para cada necesidad.',
+                image: 'images/carruselPrestamo.png',
+                tech: ['Asesoramiento', 'Atención Personalizada']
             },
             {
                 id: 6,
-                title: 'AR Interface',
-                description: 'Augmented reality system for immersive data visualization and interactive experiences.',
-                image: 'images/ar-interface.jpg',
-                tech: ['Unity', 'ARCore', 'Computer Vision']
-            },
-            {
-                id: 7,
-                title: 'IoT Matrix',
-                description: 'Intelligent IoT ecosystem connecting millions of devices with edge computing capabilities.',
-                image: 'images/iot-matrix.jpg',
-                tech: ['MQTT', 'Edge AI', '5G']
+                title: 'Confianza que impulsa oportunidades',
+                description: 'Trabajamos junto a empresas líderes y comprometidas para ofrecer soluciones transparentes, ágiles y confiables.',
+                image: 'images/carruselEquipo.png',
+                tech: []
             }
         ];
 
-        // Skills data
-        const skillsData = [
-            { name: 'React.js', icon: '⚛️', level: 95, category: 'frontend' },
-            { name: 'Node.js', icon: '🟢', level: 90, category: 'backend' },
-            { name: 'TypeScript', icon: '📘', level: 88, category: 'frontend' },
-            { name: 'AWS', icon: '☁️', level: 92, category: 'cloud' },
-            { name: 'Docker', icon: '🐳', level: 85, category: 'cloud' },
-            { name: 'Python', icon: '🐍', level: 93, category: 'backend' },
-            { name: 'Kubernetes', icon: '☸️', level: 82, category: 'cloud' },
-            { name: 'GraphQL', icon: '◈', level: 87, category: 'backend' },
-            { name: 'TensorFlow', icon: '🤖', level: 78, category: 'emerging' },
-            { name: 'Blockchain', icon: '🔗', level: 75, category: 'emerging' },
-            { name: 'Vue.js', icon: '💚', level: 85, category: 'frontend' },
-            { name: 'MongoDB', icon: '🍃', level: 90, category: 'backend' }
-        ];
 
         // Scroll to section function
         function scrollToSection(sectionId) {
@@ -134,7 +112,6 @@
                     <h3 class="card-title">${data.title}</h3>
                     <p class="card-description">${data.description}</p>
                     <div class="card-tech">${techBadges}</div>
-                    <button class="card-cta" onclick="scrollToSection('about')">Explore</button>
                 </div>
             `;
             
@@ -462,69 +439,6 @@
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 }
             });
-        });
-
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-        const formStartedAt = document.getElementById('form_started_at');
-
-        if (formStartedAt) {
-            formStartedAt.value = String(Date.now());
-        }
-
-        function showFormStatus(message, type) {
-            formStatus.textContent = message;
-            formStatus.className = `form-status visible ${type}`;
-        }
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const requiredFields = ['name', 'phone', 'email', 'message'];
-            const hasEmptyFields = requiredFields.some(fieldName => {
-                const field = contactForm.elements[fieldName];
-                return !field || !field.value.trim();
-            });
-
-            if (hasEmptyFields) {
-                showFormStatus('Completá todos los campos obligatorios para enviar tu consulta.', 'error');
-                return;
-            }
-
-            if (!contactForm.elements.email.checkValidity()) {
-                showFormStatus('Ingresá un email válido para que podamos responderte.', 'error');
-                return;
-            }
-
-            const formData = new FormData(contactForm);
-            const payload = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-
-                const result = await response.json();
-
-                if (!response.ok || !result.success) {
-                    showFormStatus(result.message || 'No pudimos enviar tu consulta. Intentá nuevamente.', 'error');
-                    return;
-                }
-
-                showFormStatus(result.message || 'Tu consulta fue enviada correctamente. Te responderemos a la brevedad.', 'success');
-                contactForm.reset();
-                if (formStartedAt) {
-                    formStartedAt.value = String(Date.now());
-                }
-            } catch (error) {
-                showFormStatus('No pudimos conectar con el servicio de envío. Verificá la configuración de la API en Vercel.', 'error');
-            }
         });
 
         // Loading screen
