@@ -1,12 +1,4 @@
-// JavaScript Document
 
-/*
-
-TemplateMo 600 Prism Flux
-
-https://templatemo.com/tm-600-prism-flux
-
-*/
 
 
 // Portfolio data for carousel
@@ -96,6 +88,7 @@ https://templatemo.com/tm-600-prism-flux
         // Initialize particles for philosophy section
         function initParticles() {
             const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
             const particleCount = 15;
             
             for (let i = 0; i < particleCount; i++) {
@@ -335,7 +328,6 @@ https://templatemo.com/tm-600-prism-flux
 
         // Initialize on load
         initCarousel();
-        initSkillsGrid();
         initParticles();
 
         // Mobile menu toggle
