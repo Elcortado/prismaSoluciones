@@ -363,5 +363,29 @@ En Realidad
         </svg>
     </a>
 <script src="scripts.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+          // https://dashboard.emailjs.com/admin/account
+          emailjs.init({
+            publicKey: "dCRMhChAdYK1Oma1A",
+          });
+      })();
+  </script>
+  <script type="text/javascript">
+      window.onload = function() {
+          document.getElementById('contactForm').addEventListener('submit', function(event) {
+              event.preventDefault();
+              // these IDs from the previous steps
+              emailjs.sendForm('service_x50cpvq', 'template_vw91qpv', this)
+              .then(() => {
+                      alert ('MENSAJE ENVIADO!');
+                      document.getElementById('contactForm').reset();
+                  }, (error) => {
+                      alert('FAILED...', error);
+                  });
+          });
+      }
+  </script>
 </body>
 </html>
