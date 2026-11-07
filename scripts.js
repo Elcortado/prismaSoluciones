@@ -8,7 +8,7 @@
                 id: 1,
                 title: 'Hogares que inspiran',
                 description: 'Encontrá muebles, electrodomésticos, artículos de bazar y decoración para equipar, renovar y darle tu propio estilo a cada rincón de tu hogar.',
-                image: 'images/carruselMuebles.png',
+                image: 'images/categoriaHogar.png',
                 tech: ['Financiación', 'Muebles', 'Hogar']
             },
             {
@@ -36,7 +36,7 @@
                 id: 5,
                 title: 'Equipá tu negocio y hacelo crecer',
                 description: 'Encontrá muebles, vitrinas, exhibidores, herramientas y todo el equipamiento que necesitás para poner en marcha, renovar o hacer crecer tu negocio.',
-                image: 'images/carruselPrestamo.png',
+                image: 'images/portadaComercial.png',
                 tech: ['Asesoramiento', 'Atención Personalizada']
             },
             {
