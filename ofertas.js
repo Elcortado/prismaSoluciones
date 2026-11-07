@@ -78,64 +78,64 @@ const offersCatalog = [
         details: ['Ideal para rutinas en espacios reducidos.', 'Consultá modelos y financiación.']
     },
 
-    // Equipamiento comercial
+    // Equipamientos comerciales
     {
-        title: 'Freezer comercial', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/carruselElectro.png',
+        title: 'Freezer comercial', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/carruselElectro.png',
         description: 'Conservá mercadería y organizá mejor el almacenamiento de tu negocio.',
         details: ['Opciones para distintos volúmenes de trabajo.', 'Consultá capacidad y consumo.']
     },
     {
-        title: 'Vitrina exhibidora', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/ar-interface.jpg',
+        title: 'Vitrina exhibidora', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/ar-interface.jpg',
         description: 'Presentá tus productos de forma atractiva y facilitá la elección de tus clientes.',
         details: ['Modelos para alimentos y productos varios.', 'Alternativas según tu espacio.']
     },
     {
-        title: 'Heladera mostrador', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/quantum-cloud.jpg',
+        title: 'Heladera mostrador', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/quantum-cloud.jpg',
         description: 'Combiná exhibición y conservación en un equipo pensado para tu comercio.',
         details: ['Ideal para almacenes, bares y locales.', 'Consultá medidas y disponibilidad.']
     },
     {
-        title: 'Horno pizzero', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/blockchain-vault.jpg',
+        title: 'Horno pizzero', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/blockchain-vault.jpg',
         description: 'Equipá tu cocina profesional para preparar pizzas y productos horneados.',
         details: ['Alternativas para distintos ritmos de producción.', 'Asesoramiento para elegir capacidad.']
     },
     {
-        title: 'Cortadora de fiambre', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/data-nexus.jpg',
+        title: 'Cortadora de fiambre', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/data-nexus.jpg',
         description: 'Agilizá el trabajo diario con una herramienta precisa y fácil de usar.',
         details: ['Pensada para almacenes y fiambrerías.', 'Consultá modelos y prestaciones.']
     },
     {
-        title: 'Balanza comercial', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/carruselEquipo.png',
+        title: 'Balanza comercial', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/carruselEquipo.png',
         description: 'Pesá y controlá tus productos con mayor precisión en cada venta.',
         details: ['Opciones para mostrador y atención al público.', 'Consultá capacidad y funciones.']
     },
     {
-        title: 'Estantería metálica', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/neural-network.jpg',
+        title: 'Estantería metálica', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/neural-network.jpg',
         description: 'Organizá stock, herramientas y mercadería aprovechando cada metro.',
         details: ['Soluciones para depósitos y salones.', 'Consultá tamaños y configuraciones.']
     },
     {
-        title: 'Mostrador de atención', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/carruselMuebles.png',
+        title: 'Mostrador de atención', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/carruselMuebles.png',
         description: 'Dale a tu local un punto de atención cómodo, ordenado y profesional.',
         details: ['Diseños para distintos rubros.', 'Opciones de medidas y terminaciones.']
     },
     {
-        title: 'Kit de cámaras de seguridad', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/cyber-defense.jpg',
+        title: 'Kit de cámaras de seguridad', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/cyber-defense.jpg',
         description: 'Sumá herramientas de control para cuidar tu local y tu mercadería.',
         details: ['Kits para pequeños y medianos comercios.', 'Consultá instalación y alcance.']
     },
     {
-        title: 'Impresora térmica', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/iot-matrix.jpg',
+        title: 'Impresora térmica', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/iot-matrix.jpg',
         description: 'Agilizá la emisión de comprobantes y la gestión de tus ventas.',
         details: ['Soluciones para caja y mostrador.', 'Consultá compatibilidad y modelos.']
     },
     {
-        title: 'Computadora para comercio', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/quantum-cloud.jpg',
+        title: 'Computadora para comercio', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/quantum-cloud.jpg',
         description: 'Una herramienta para administrar ventas, stock y tareas de tu negocio.',
         details: ['Configuraciones para distintos usos.', 'Opciones de financiación disponibles.']
     },
     {
-        title: 'Aire acondicionado comercial', category: 'comercial', categoryLabel: 'Equipamiento comercial', image: 'images/ar-interface.jpg',
+        title: 'Aire acondicionado comercial', category: 'comercial', categoryLabel: 'Equipamientos comerciales', image: 'images/ar-interface.jpg',
         description: 'Mantené tu espacio de trabajo confortable para clientes y equipo.',
         details: ['Alternativas para salones y oficinas.', 'Consultá potencia y disponibilidad.']
     },

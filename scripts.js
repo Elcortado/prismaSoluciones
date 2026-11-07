@@ -216,7 +216,6 @@
                     <h3 class="card-title">${data.title}</h3>
                     <p class="card-description">${data.description}</p>
                     <div class="card-tech">${techBadges}</div>
-                    <a class="card-whatsapp-link" href="${buildWhatsappLink(data.title)}" target="_blank" rel="noopener" data-whatsapp-title="${data.title}">Consultar por WhatsApp</a>
                 </div>
             `;
             
