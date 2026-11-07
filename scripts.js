@@ -7,21 +7,21 @@
             {
                 id: 1,
                 title: 'Hogares que inspiran',
-                description: 'Financiamos muebles de calidad para que transformes cada espacio de tu hogar con comodidad, diseño y funcionalidad.',
+                description: 'Encontrá muebles, electrodomésticos, artículos de bazar y decoración para equipar, renovar y darle tu propio estilo a cada rincón de tu hogar.',
                 image: 'images/carruselMuebles.png',
                 tech: ['Financiación', 'Muebles', 'Hogar']
             },
             {
                 id: 2,
                 title: 'Tecnología para tu día a día',
-                description: 'Accedé a los electrodomésticos que necesitás con planes de financiación pensados para vos y tu familia.',
+                description: 'Accedé a los electrodomésticos y artícuos electrónicos que necesitás con planes de financiación pensados para vos y tu familia.',
                 image: 'images/carruselElectro.png',
                 tech: ['Financiación', 'Electrodomésticos', 'Hogar']
             },
             {
                 id: 3,
                 title: 'Tu movilidad, sin límites',
-                description: 'Encontrá la moto ideal para trabajar, estudiar o disfrutar de una mayor independencia con cuotas accesibles.',
+                description: 'Encontrá el móvil ideal para trabajar, estudiar o disfrutar de una mayor independencia con cuotas accesibles.',
                 image: 'images/categoriaMovilidad.png',
                 tech: ['Financiación', 'Motos', 'Bicicletas']  
             },
@@ -34,8 +34,8 @@
             },
             {
                 id: 5,
-                title: 'Asesoramiento que te acompaña',
-                description: 'Te brindamos atención personalizada para encontrar la alternativa de financiación más adecuada para cada necesidad.',
+                title: 'Equipá tu negocio y hacelo crecer',
+                description: 'Encontrá muebles, vitrinas, exhibidores, herramientas y todo el equipamiento que necesitás para poner en marcha, renovar o hacer crecer tu negocio.',
                 image: 'images/carruselPrestamo.png',
                 tech: ['Asesoramiento', 'Atención Personalizada']
             },
@@ -49,7 +49,7 @@
         ];
 
         // Build every product consultation with the product title prefilled.
-        const WHATSAPP_NUMBER = '5493624216834';
+        const WHATSAPP_NUMBER = '5493625181576';
 
         function buildWhatsappLink(productTitle) {
             const message = `Hola, quiero consultar por ${productTitle}.`;
