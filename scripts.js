@@ -48,6 +48,110 @@
             }
         ];
 
+        // Build every product consultation with the product title prefilled.
+        const WHATSAPP_NUMBER = '5493624216834';
+
+        function buildWhatsappLink(productTitle) {
+            const message = `Hola, quiero consultar por ${productTitle}.`;
+            return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+
+        function applyWhatsappLinks() {
+            document.querySelectorAll('a[data-whatsapp-title]').forEach((link) => {
+                const productTitle = link.dataset.whatsappTitle;
+                if (!productTitle) return;
+
+                link.href = buildWhatsappLink(productTitle);
+                link.setAttribute('aria-label', `Consultar por WhatsApp: ${productTitle}`);
+            });
+        }
+
+        // Weekly offers carousel: manual controls plus automatic rotation.
+        const offersTrack = document.getElementById('offersTrack');
+        const offersSlides = offersTrack ? Array.from(offersTrack.querySelectorAll('.offers-carousel__slide')) : [];
+        const offersIndicators = document.getElementById('offersIndicators');
+        const offersPreviousButton = document.getElementById('offersPrev');
+        const offersNextButton = document.getElementById('offersNext');
+        let currentOfferIndex = 0;
+        let offersAutoplayTimer;
+
+        function getOffersVisibleCount() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function getOffersMaxIndex() {
+            return Math.max(0, offersSlides.length - getOffersVisibleCount());
+        }
+
+        function updateOffersCarousel() {
+            if (!offersTrack || !offersSlides.length) return;
+
+            currentOfferIndex = Math.min(currentOfferIndex, getOffersMaxIndex());
+            const firstSlide = offersSlides[0];
+            const slideWidth = firstSlide.getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(offersTrack).gap) || 0;
+            offersTrack.style.transform = `translateX(-${currentOfferIndex * (slideWidth + gap)}px)`;
+
+            if (offersIndicators) {
+                Array.from(offersIndicators.children).forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentOfferIndex);
+                    indicator.setAttribute('aria-current', index === currentOfferIndex ? 'true' : 'false');
+                });
+            }
+        }
+
+        function goToOffer(index) {
+            const maxIndex = getOffersMaxIndex();
+            currentOfferIndex = index > maxIndex ? 0 : Math.max(0, index);
+            updateOffersCarousel();
+        }
+
+        function showNextOffer() {
+            const maxIndex = getOffersMaxIndex();
+            currentOfferIndex = currentOfferIndex >= maxIndex ? 0 : currentOfferIndex + 1;
+            updateOffersCarousel();
+        }
+
+        function startOffersAutoplay() {
+            if (!offersSlides.length) return;
+            clearInterval(offersAutoplayTimer);
+            offersAutoplayTimer = setInterval(showNextOffer, 5500);
+        }
+
+        function initOffersCarousel() {
+            if (!offersTrack || !offersSlides.length || !offersIndicators) return;
+
+            const indicatorCount = getOffersMaxIndex() + 1;
+            for (let index = 0; index < indicatorCount; index++) {
+                const indicator = document.createElement('button');
+                indicator.className = 'offers-carousel__indicator';
+                indicator.type = 'button';
+                indicator.setAttribute('aria-label', `Mostrar ofertas ${index + 1}`);
+                indicator.addEventListener('click', () => {
+                    goToOffer(index);
+                    startOffersAutoplay();
+                });
+                offersIndicators.appendChild(indicator);
+            }
+
+            offersPreviousButton.addEventListener('click', () => {
+                const maxIndex = getOffersMaxIndex();
+                currentOfferIndex = currentOfferIndex <= 0 ? maxIndex : currentOfferIndex - 1;
+                updateOffersCarousel();
+                startOffersAutoplay();
+            });
+
+            offersNextButton.addEventListener('click', () => {
+                showNextOffer();
+                startOffersAutoplay();
+            });
+
+            updateOffersCarousel();
+            startOffersAutoplay();
+        }
+
 
         // Scroll to section function
         function scrollToSection(sectionId) {
@@ -112,6 +216,7 @@
                     <h3 class="card-title">${data.title}</h3>
                     <p class="card-description">${data.description}</p>
                     <div class="card-tech">${techBadges}</div>
+                    <a class="card-whatsapp-link" href="${buildWhatsappLink(data.title)}" target="_blank" rel="noopener" data-whatsapp-title="${data.title}">Consultar por WhatsApp</a>
                 </div>
             `;
             
@@ -300,12 +405,15 @@
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
                 updateCarousel();
+                updateOffersCarousel();
             }, 250);
         });
 
         // Initialize on load
         initCarousel();
         initParticles();
+        applyWhatsappLinks();
+        initOffersCarousel();
 
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
