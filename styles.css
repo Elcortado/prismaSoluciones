@@ -835,6 +835,118 @@ body::after {
 	pointer-events: none;
 }
 
+.partners-showcase {
+	margin: 72px auto 0;
+	max-width: 1040px;
+	position: relative;
+	z-index: 1;
+}
+
+.partners-heading {
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.partners-heading .detail-kicker {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.partners-title {
+	color: var(--text-primary);
+	font-size: 22px;
+	letter-spacing: 2px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+}
+
+.partners-subtitle {
+	color: var(--text-dim);
+	font-size: 13px;
+	line-height: 1.5;
+	margin: 0 auto;
+	max-width: 560px;
+}
+
+.partners-carousel {
+	overflow: hidden;
+	padding: 4px 2px 12px;
+}
+
+.partners-swap-stage {
+	--partner-gap: 18px;
+	display: grid;
+	gap: var(--partner-gap);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+.partner-card {
+	align-items: center;
+	background: linear-gradient(135deg, rgba(42, 42, 42, 0.72), rgba(18, 18, 18, 0.92));
+	border: 1px solid var(--metal-dark);
+	border-radius: 12px;
+	color: var(--text-secondary);
+	display: flex;
+	height: 92px;
+	justify-content: center;
+	letter-spacing: 1.5px;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+.partner-card::before {
+	background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+	content: '';
+	height: 1px;
+	left: 15%;
+	position: absolute;
+	right: 15%;
+	top: 0;
+}
+
+.partner-card:hover {
+	border-color: var(--accent-purple);
+	box-shadow: 0 10px 24px rgba(153, 69, 255, 0.18);
+	color: var(--text-primary);
+	transform: translateY(-3px);
+}
+
+.partner-card span {
+	font-size: 12px;
+	font-weight: 700;
+}
+
+/* Use this class when replacing a placeholder with a real logo image. */
+.partner-card img {
+	filter: grayscale(100%) brightness(1.6);
+	max-height: 48px;
+	max-width: 78%;
+	object-fit: contain;
+	opacity: 0.85;
+	transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partner-card:hover img {
+	filter: grayscale(0%) brightness(1);
+	opacity: 1;
+}
+
+.partners-swap-stage .partner-card {
+	transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partners-swap-stage.is-swapped .partner-card:first-child {
+	transform: translateX(calc(100% + var(--partner-gap)));
+}
+
+.partners-swap-stage.is-swapped .partner-card:last-child {
+	transform: translateX(calc(-100% - var(--partner-gap)));
+}
+
 .particle {
 	position: absolute;
 	width: 4px;
@@ -2316,6 +2428,10 @@ a.info-item {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
+	.partner-card {
+		flex-basis: calc((100% - 18px) / 2);
+	}
+
 	.contact-container {
 		grid-template-columns: 1fr;
 	}
@@ -2465,6 +2581,10 @@ a.info-item {
 
 	.offers-search-row {
 		flex-direction: column;
+	}
+
+	.partner-card {
+		flex-basis: 100%;
 	}
 
 	.stat-card {

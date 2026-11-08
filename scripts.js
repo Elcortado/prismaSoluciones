@@ -193,6 +193,19 @@
             }
         }
 
+        // Exchange the two partner logos every three seconds.
+        const partnersSwapStage = document.getElementById('partnersSwapStage');
+        let partnersSwapped = false;
+
+        function initPartnersCarousel() {
+            if (!partnersSwapStage) return;
+
+            setInterval(() => {
+                partnersSwapped = !partnersSwapped;
+                partnersSwapStage.classList.toggle('is-swapped', partnersSwapped);
+            }, 3000);
+        }
+
         // Initialize carousel
         let currentIndex = 0;
         const carousel = document.getElementById('carousel');
@@ -413,6 +426,7 @@
         initParticles();
         applyWhatsappLinks();
         initOffersCarousel();
+        initPartnersCarousel();
 
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
